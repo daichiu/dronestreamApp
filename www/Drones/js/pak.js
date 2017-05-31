@@ -14,7 +14,7 @@ $(document).ready(function(){
         dataType: 'jsonp',
         success: function (result) {
             console.log(result);
-            pak(result)
+            pak(result);
             myMap(result)
         },
         error: function () {
