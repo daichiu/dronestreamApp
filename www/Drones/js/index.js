@@ -16,6 +16,8 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+document.getElementById("test").innerHTML = location.hostname;
+
 var app = {
     //hi
     // Application Constructor
