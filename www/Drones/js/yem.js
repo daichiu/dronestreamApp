@@ -62,7 +62,6 @@ function myMap(result) {
     var markerCluster = new MarkerClusterer(map, markers,
         {imagePath: "../clusters_images/marker"});
     //console.log("hi");
-
 }
 
 //console.log(coordinates);
