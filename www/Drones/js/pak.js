@@ -13,7 +13,7 @@ $(document).ready(function(){
         crossDomain: true,
         dataType: 'jsonp',
         success: function (result) {
-            console.log(result);
+            //console.log(result);
             pak(result);
             myMap(result)
         },
@@ -32,8 +32,8 @@ function pak(result){
     }
 }
 
+console.log("Pakistan strikes:");
 console.log(pakistan);
-console.log("Pakistan Strikes");
 
 //drone api returns a string, but google api must take number, so must parse
 function latLng(lat, lng) {
@@ -58,14 +58,47 @@ function myMap(result) {
     var markers = coordinates.map(function(location) {
         return new google.maps.Marker({
             map: map,
-            position: location
+            position: location,
         });
     });
+
+    //attach the info text per drone strike
+    for (var i = 0; i < markers.length; i++) {
+        attachText(markers[i], pakistan, i, map);
+    }
+
+    //create marker clusters
     var markerCluster = new MarkerClusterer(map, markers,
         {imagePath: "../clusters_images/marker"});
     //console.log("hi");
-
 }
+
+function attachText(marker, data, num, nameMap) {
+    //var string = toString(data[num]);
+
+    var string = "";
+    for (var key in data[num]) {
+        string += data[num][key];
+        string += "<br>";
+    }
+
+    var infoWindow = new google.maps.InfoWindow({
+       content: string
+    });
+
+    marker.addListener("click", function() {
+        infoWindow.open(marker.get(nameMap), marker);
+    });
+}
+
+/*function toString(hold) {
+    var string = "";
+    for (var key in hold) {
+        string += hold[key];
+        string += "<br>"
+    }
+
+}*/
 
 //console.log(coordinates);
 //console.log("coordinates array");
