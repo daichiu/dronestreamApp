@@ -59,12 +59,10 @@ function myMap(result) {
             position: location
         });
     });
-
     //attach the info text per drone strike
     for (var i = 0; i < markers.length; i++) {
         attachText(markers[i], yemen, i, map);
     }
-
     var markerCluster = new MarkerClusterer(map, markers,
         {imagePath: "../clusters_images/marker"});
     //console.log("hi");

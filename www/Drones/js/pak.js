@@ -61,12 +61,10 @@ function myMap(result) {
             position: location,
         });
     });
-
     //attach the info text per drone strike
     for (var i = 0; i < markers.length; i++) {
         attachText(markers[i], pakistan, i, map);
     }
-
     //create marker clusters
     var markerCluster = new MarkerClusterer(map, markers,
         {imagePath: "../clusters_images/marker"});
