@@ -59,10 +59,41 @@ function myMap(result) {
             position: location
         });
     });
+
+    //attach the info text per drone strike
+    for (var i = 0; i < markers.length; i++) {
+        attachText(markers[i], somalia, i, map);
+    }
+
     var markerCluster = new MarkerClusterer(map, markers,
         {imagePath: "../clusters_images/marker"});
     //console.log("hi");
+}
 
+function attachText(marker, data, num, nameMap) {
+    //var string = toString(data[num]);
+    //console.log(Object.getOwnPropertyNames(data[num]));
+
+    var string = "";
+    for (var key in data[num]) {
+        if (Array.isArray(data[num][key])) {
+            for (var i = 0; i < data[num][key].length; i++) {
+                string += key + ": "+ data[num][key][i];
+                string += "<br>";
+            }
+        } else {
+            string += key + ": " + data[num][key];
+            string += "<br>";
+        }
+    }
+
+    var infoWindow = new google.maps.InfoWindow({
+        content: string
+    });
+
+    marker.addListener("click", function() {
+        infoWindow.open(marker.get(nameMap), marker);
+    });
 }
 
 //console.log(coordinates);
