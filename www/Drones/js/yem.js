@@ -66,6 +66,7 @@ function myMap(result) {
     var markerCluster = new MarkerClusterer(map, markers,
         {imagePath: "../clusters_images/marker"});
     //console.log("hi");
+
 }
 
 function attachText(marker, data, num, nameMap) {
