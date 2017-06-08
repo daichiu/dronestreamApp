@@ -1,5 +1,11 @@
-.ui-mobile-viewport{
+div{
+  color: dimgrey;
 
-    background-color: darkgrey;
+}
+.ui-title{
+    color:floralwhite;
 
+}
+.ui-page{
+    background-color:dimgrey;
 }
