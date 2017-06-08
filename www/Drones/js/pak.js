@@ -94,6 +94,11 @@ function attachText(marker, data, num, nameMap) {
 
     marker.addListener("click", function() {
         infoWindow.open(marker.get(nameMap), marker);
+        var d =  new Date(data[num].date);
+        console.log(nameMap);
+        console.log(data[num]);
+        console.log(new Date(data[num].date));
+        console.log(data[num][key]);
     });
 }
 
