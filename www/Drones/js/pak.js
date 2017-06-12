@@ -77,8 +77,6 @@ function attachText(marker, data, num, nameMap) {
     var string = "";
     string += "Number: "+data[num].number;
     string += "<br>";
-    string += data[num].narrative;
-    string += "<br>";
     string += "Date: "+data[num].date;
     string += "<br>";
     string += "Deaths: "+data[num].deaths;
