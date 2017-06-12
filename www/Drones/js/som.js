@@ -71,19 +71,21 @@ function myMap(result) {
 function attachText(marker, data, num, nameMap) {
     //var string = toString(data[num]);
     //console.log(Object.getOwnPropertyNames(data[num]));
-
     var string = "";
-    for (var key in data[num]) {
-        if (Array.isArray(data[num][key])) {
-            for (var i = 0; i < data[num][key].length; i++) {
-                string += key + ": "+ data[num][key][i];
-                string += "<br>";
-            }
-        } else {
-            string += key + ": " + data[num][key];
-            string += "<br>";
-        }
-    }
+    string += "Number: "+data[num].number;
+    string += "<br>";
+    string += data[num].narrative;
+    string += "<br>";
+    string += "Date: "+data[num].date;
+    string += "<br>";
+    string += "Deaths: "+data[num].deaths;
+    string += "<br>";
+    string += "Injuries: "+data[num].injuries;
+    string += "<br>";
+    string += "Town: "+data[num].town;
+    string += "<br>";
+    string += "Location: "+data[num].location;
+    string += "<br>";
 
     var infoWindow = new google.maps.InfoWindow({
         content: string
