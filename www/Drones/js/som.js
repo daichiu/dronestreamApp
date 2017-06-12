@@ -73,21 +73,22 @@ function attachText(marker, data, num, nameMap) {
     //console.log(Object.getOwnPropertyNames(data[num]));
 
     var string = "";
-    for (var key in data[num]) {
-        if (Array.isArray(data[num][key])) {
-            for (var i = 0; i < data[num][key].length; i++) {
-                string += key + ": "+ data[num][key][i];
-                string += "<br>";
-            }
-        } else {
-            string += key + ": " + data[num][key];
-            string += "<br>";
-        }
-    }
-
+    string += "Number: " + data[num].number;
+    string += "<br>";
+    string += "Date: " + data[num].date;
+    string += "<br>";
+    string += "Deaths: " + data[num].deaths;
+    string += "<br>";
+    string += "Injured: " + data[num].injuries;
+    string += "<br>";
+    string += "Region: " + data[num].location;
+    string += "<br>";
+    string += "Town: " + data[num].town;
+    string += "<br>";
+    string += "Narrative: " + data[num].narrative;
+    string += "<br>";
     var infoWindow = new google.maps.InfoWindow({
-        content: string
-    });
+        content: string });
 
     marker.addListener("click", function() {
         infoWindow.open(marker.get(nameMap), marker);
