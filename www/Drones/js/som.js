@@ -84,7 +84,7 @@ function attachText(marker, data, num, nameMap) {
     string += "<br>";
     string += "Location: "+data[num].location;
     string += "<br>";
-    string += data[num].narrative;
+    string += "Narrative: " + data[num].narrative;
     string += "<br>";
     var infoWindow = new google.maps.InfoWindow({
         content: string
