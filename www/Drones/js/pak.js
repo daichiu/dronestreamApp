@@ -72,7 +72,7 @@ function myMap(result) {
 }
 
 function attachText(marker, data, num, nameMap) {
-    //var string = toString(data[num]);
+    //var string = toString(data[num]);dsafadsfadsf
     //console.log(Object.getOwnPropertyNames(data[num]));
     var string = "";
     string += "Number: "+data[num].number;
